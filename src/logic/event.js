@@ -10,8 +10,15 @@ import { notifyInTelegram } from "../helpers/telegram.js";
 import config from "../config.js";
 
 let lastBlockNumber = null;
+let isFetching = false;
 
 export async function fetchTransferEvents() {
+  if (isFetching) {
+    console.log("Fetch in progress. Exiting.");
+    return;
+  }
+  isFetching = true;
+
   try {
     const currentBlockNumber = await web3.eth.getBlockNumber();
 
@@ -37,6 +44,8 @@ export async function fetchTransferEvents() {
     }
   } catch (e) {
     console.log(e);
+  } finally {
+    isFetching = false;
   }
 }
 
