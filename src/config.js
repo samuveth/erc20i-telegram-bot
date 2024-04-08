@@ -12,6 +12,3 @@ const config = {
 };
 
 export default config;
-
-// -1002030724719
-// 462127701
