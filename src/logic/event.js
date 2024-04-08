@@ -80,8 +80,6 @@ export async function onTransferEvent(event) {
   const buyAmount = decimalsOff(values.value, 9);
   const txHash = event.transactionHash;
 
-  if (spentAmount < 0.0694) return;
-
   const imageName = "inscription.png";
   await fs.writeFileSync("inscription.svg", sporesSvg);
   await convertSvgToPng("inscription.svg", imageName);
@@ -119,10 +117,11 @@ function generateMessageText({
     () => "🍄"
   );
 
+  const shrooms =
+    shroomsArray.length < 1 ? "🍄" : shroomsArray.join("").replace(",", "");
+
   const textAsArray = [
-    `*${config.TOKEN_NAME} Buy!*\n${shroomsArray
-      .join("")
-      .replace(",", "")}\n\n`,
+    `*${config.TOKEN_NAME} Buy!*\n${shrooms}\n\n`,
 
     `🍄 *Got*: _${gotAmount} ${config.TOKEN_NAME}_\n`,
 
