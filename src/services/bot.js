@@ -1,8 +1,10 @@
-import { Telegraf } from 'telegraf'
-import config from '../config.js'
+import { Telegraf } from "telegraf";
+import config from "../config.js";
 
-const bot = new Telegraf(config.TELEGRAM_BOT_TOKEN)
+const bot = new Telegraf(config.TELEGRAM_BOT_TOKEN);
 
-bot.launch()
+console.log(config.TELEGRAM_BOT_TOKEN);
 
-export default bot
+bot.launch();
+
+export default bot;
