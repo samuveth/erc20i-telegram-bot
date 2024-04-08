@@ -7,7 +7,7 @@ const config = {
   EXPLORER_URL: "https://basescan.org",
   PROVIDER_URL:
     "https://api.developer.coinbase.com/rpc/v1/base/HGhJ7LjQj9AFXDwVbVinHj5yIYEsuhUu",
-  TELEGRAM_BOT_TOKEN: NODE_ENV_TOKEN,
+  TELEGRAM_BOT_TOKEN: process.env.TOKEN,
   TELEGRAM_CHAT_ID: "-1002030724719",
 };
 
